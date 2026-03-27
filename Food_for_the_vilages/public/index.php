@@ -47,7 +47,6 @@
 
                 <button type="submit">Изпрати</button>
             </form>
-            <p id="confirmation" style="color:green;"></p>
         </section>
     </main>
 
