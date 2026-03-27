@@ -71,10 +71,10 @@
     <div class="nav-bar">
         <a href="/">Начало</a>
         @foreach($categories as $category)
-            @if($category->name === 'Хранителни продукти')
+            @if($category->name === 'Food')
                 <a href="/products" class="active">{{ $category->name }}</a>
             @else
-                <span>{{ $category->name }}</span>
+                <button>{{ $category->name }}</button>
             @endif
         @endforeach
     </div>
