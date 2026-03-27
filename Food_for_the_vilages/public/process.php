@@ -5,13 +5,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = htmlspecialchars($_POST['type']);
     $message = htmlspecialchars($_POST['message']);
 
-    // Записване на заявката в текстов файл (може да се замени с база данни)
     $file = fopen("requests.txt", "a");
     fwrite($file, "Име: $name\nМясто: $location\nТип помощ: $type\nДопълнително: $message\n---\n");
     fclose($file);
 
-    // Пренасочване обратно към формата
-    header("Location: index.html");
+    header("Location: thank-you.html");
     exit();
 }
 ?>
