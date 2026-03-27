@@ -1,7 +1,22 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/products', [ProductController::class, 'index']);
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::post('/save', function (Request $request) {
+
+    $data = "Име: " . $request->name . "\n";
+    $data .= "Град: " . $request->city . "\n";
+    $data .= "Село: " . $request->village . "\n";
+    $data .= "Искане: " . $request->items . "\n";
+    $data .= "-------------------\n";
+
+    Storage::append('requests.txt', $data);
+
+    return "Заявката е изпратена успешно!";
+});
